@@ -1,0 +1,12 @@
+﻿{
+  "_id": "_design/products",
+  "views": {
+    "price_points": {
+      "map": "function (doc) {\n  if (doc.$doctype == 'basePricePoint') {\n    emit(doc.productId, doc);\n  }\n}"
+    },
+    "product_with_id": {
+      "map": "function (doc) {\n  if (doc.$doctype == 'baseProduct') {\n    emit(doc.externalId, doc);\n  }\n}"
+    }
+  },
+  "language": "javascript"
+}
